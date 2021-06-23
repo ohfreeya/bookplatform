@@ -39,3 +39,5 @@ Route::get('/modify/user/pwd', 'Auth\UserController@modifyUserPwd')->name('modif
 Route::post('/modify/user/pwd', 'Auth\UserController@modifyUserPwdData')->name('modify.user.pwd.data');
 Route::get('/delete/user', 'Auth\UserController@deleteUser')->name('delete.user');
 Route::post('/delete/user', 'Auth\UserController@deleteUserData')->name('delete.user.data');
+
+Route::get('/platform', 'PlatformController@index')->name('platform');
