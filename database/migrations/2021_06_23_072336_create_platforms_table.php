@@ -19,8 +19,8 @@ class CreatePlatformsTable extends Migration
             $table->integer('ISBN');
             $table->string('author');
             $table->bigInteger('price');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('seller_id')->unsigned();
+            $table->foreign('seller_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
