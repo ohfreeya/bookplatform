@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">會員管理系統</div>
+                <div class="card-header">Platform</div>
 
                 <div class="card-body">
                     @if (session('status'))
