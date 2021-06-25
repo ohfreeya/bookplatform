@@ -18,13 +18,11 @@
         <input type="hidden" name="id" value="{{Auth::user()->id}}">
         <div class="form-group">
             <label for="uname">E-Mail:(不可修改)<label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" readonly>
+                    <input type="text" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" style="width: 300px;" readonly>
         </div>
         <div class="form-group">
             <label for="name">使用者名稱:</label>
-            <input type="text" class="form-control" id="name" placeholder="請輸入姓名:" name="name" value="{{Auth::user()->name}}" require>
-            <div class="valid-feedback">完成填寫</div>
-            <div class="invalid-feeback">請填寫此欄位</div>
+            <input type="text" class="form-control" id="name" placeholder="請輸入姓名:" name="name" value="{{Auth::user()->name}}" readonly>
         </div>
         <div class="form-group">
             <label for="sex">性別:</label>
