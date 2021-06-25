@@ -1,43 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Platform</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    歡迎光臨 {{ Auth::user()->name }}，您已登入~
-                </div>
-                <div class="card-body alert">
-                    <strong>1. </strong>
-                    <a href="{{route('modify.user')}}" class="alert-link">修改會員資料</a>
-                </div>
-                <div class="card-body alert">
-                    <strong>2. </strong>
-                    <a href="{{route('modify.user.pwd')}}" class="alert-link">修改會員密碼</a>
-                </div>
-                <div class="card-body alert">
-                    <strong>3. </strong>
-                    <a href="{{route('delete.user')}}" class="alert-link">刪除會員帳號</a>
-                </div>
-                <div class="card-body alert">
-                    <strong>4. </strong>
-                    <a href="{{ route('logout') }}" class="alert-link text-success" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        點擊此處登出
-                    </a>
-                    <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </div>
+<div class="search">
+    <nav class="navbar navbar-light " id="search-bar">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</div>
+<hr>
+<div class="list">
+    @foreach($book_info as $data)
+    <div class="card" id="platform-card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{$data->name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
+    @endforeach
 </div>
+<a href="{{route('add.Book')}}">新增書籍</a>
 @endsection
