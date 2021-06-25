@@ -33,6 +33,11 @@ Route::get('password/reset', 'Auth\ResetPasswordController@reset')->name('passwo
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/account', function () {
+    return view('account');
+})->name('account');
+
 Route::get('/modify/user', 'Auth\UserController@modifyUser')->name('modify.user');
 Route::post('/modify/user', 'Auth\UserController@modifyUserData')->name('modify.user.data');
 Route::get('/modify/user/pwd', 'Auth\UserController@modifyUserPwd')->name('modify.user.pwd');
@@ -40,6 +45,7 @@ Route::post('/modify/user/pwd', 'Auth\UserController@modifyUserPwdData')->name('
 Route::get('/delete/user', 'Auth\UserController@deleteUser')->name('delete.user');
 Route::post('/delete/user', 'Auth\UserController@deleteUserData')->name('delete.user.data');
 
-Route::get('/platform', 'PlatformController@index')->name('platform');
+//platform
+
 Route::get('/platform/book/add', 'bookController@addBook')->name('add.Book');
 Route::post('/platform/book/add', 'bookController@addBookData')->name('add.Book.data');
