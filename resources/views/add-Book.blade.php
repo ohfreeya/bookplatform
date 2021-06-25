@@ -46,7 +46,7 @@
         </div>
         <hr>
         <div class="form-group">
-            <label for="price">金額: <b class="text-danger">(請輸入金額)</b></label>
+            <label for="price">期望金額: <b class="text-danger">(請輸入金額)</b></label>
             <input type="text" class="form-control" id="price" placeholder="請輸入金額" name="price" required>
             <div class="valid-feedback">完成填寫</div>
             <div class="invalid-feedback">請填寫此欄位</div>
