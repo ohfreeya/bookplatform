@@ -47,5 +47,6 @@ Route::post('/delete/user', 'Auth\UserController@deleteUserData')->name('delete.
 
 //platform
 
-Route::get('/platform/book/add', 'bookController@addBook')->name('add.Book');
-Route::post('/platform/book/add', 'bookController@addBookData')->name('add.Book.data');
+Route::get('/book/add', 'bookController@addBook')->name('add.Book');
+Route::post('/book/add', 'bookController@addBookData')->name('add.Book.data');
+Route::post('/book/search', 'bookController@searchBook')->name('search.Book');
