@@ -5,7 +5,7 @@
     @if ($hint === '1')
     <div class="alert alert-success">
         <strong>已完成修改</strong>
-        <a href="{{route('platform')}}" class="alert-link">點擊此處回到首頁</a>
+        <a href="{{route('home')}}" class="alert-link">點擊此處回到首頁</a>
     </div>
     @elseif ($hint === "2")
     <div class="alert alert-danger">
