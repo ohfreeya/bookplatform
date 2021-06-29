@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Platform;
 use App\User;
+use DB;
 use Illuminate\Support\Facades\Hash;
 
 class bookController extends Controller
@@ -37,5 +38,12 @@ class bookController extends Controller
             $platform->save();
         }
         return view('add-Book', ['hint' => '1']);
+    }
+    public function searchBook(Request $data)
+    {
+        $arr1 = ['name' => $data['Search'],];
+        $arr2 = ['author' => $data['Search'],];
+        $book_info = DB::table('platforms')->distinct()->where($arr1)->orwhere($arr2)->get();
+        return view('home', ['book_info' => $book_info]);
     }
 }
