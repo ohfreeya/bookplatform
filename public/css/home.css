@@ -12,11 +12,17 @@
     width: 450px;
 }
 
-#app {
+body {
     background-image: url('https://handler.travel/wp-content/uploads/2020/03/80745625_1330225683814530_2522022551606001664_o.jpg');
-    height: 100%;
+    min-height: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+.page_block{
+    height: 500px;
+}
+.list_page{
+    height: auto;
 }
