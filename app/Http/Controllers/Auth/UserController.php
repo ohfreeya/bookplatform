@@ -15,6 +15,9 @@ class UserController extends Controller
         $this->middleware('auth');
         //設定所有 UserController 中的函數皆經過 auth 中介層，也就是將函數加入認證機制中
     }
+    public function setting(){
+        return view('auth.setting');
+    }
     public function modifyUser()
     {
         return view('auth.modify-user', ['hint' => '0']);
