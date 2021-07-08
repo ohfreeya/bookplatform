@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Platform extends Model
+class Author extends Model
 {
-    //
     protected $fillable = [
-        'name', 'ISBN', 'author',
-        'price', 'seller_id',
+        'author',
     ];
+    public $timestamps = false;
 }
