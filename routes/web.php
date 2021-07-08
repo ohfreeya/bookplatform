@@ -38,15 +38,19 @@ Route::get('/account', function () {
     return view('account');
 })->name('account');
 
-Route::get('/modify/user', 'Auth\UserController@modifyUser')->name('modify.user');
-Route::post('/modify/user', 'Auth\UserController@modifyUserData')->name('modify.user.data');
-Route::get('/modify/user/pwd', 'Auth\UserController@modifyUserPwd')->name('modify.user.pwd');
-Route::post('/modify/user/pwd', 'Auth\UserController@modifyUserPwdData')->name('modify.user.pwd.data');
-Route::get('/delete/user', 'Auth\UserController@deleteUser')->name('delete.user');
-Route::post('/delete/user', 'Auth\UserController@deleteUserData')->name('delete.user.data');
+Route::get('/account/setting', 'Auth\UserController@setting')->name('setting');
+Route::get('/account/modify/user', 'Auth\UserController@modifyUser')->name('modify.user');
+Route::post('/account/modify/user', 'Auth\UserController@modifyUserData')->name('modify.user.data');
+Route::get('/account/modify/user/pwd', 'Auth\UserController@modifyUserPwd')->name('modify.user.pwd');
+Route::post('/account/modify/user/pwd', 'Auth\UserController@modifyUserPwdData')->name('modify.user.pwd.data');
+Route::get('/account/delete/user', 'Auth\UserController@deleteUser')->name('delete.user');
+Route::post('/account/delete/user', 'Auth\UserController@deleteUserData')->name('delete.user.data');
 
 //platform
 
 Route::get('/book/add', 'bookController@addBook')->name('add.Book');
 Route::post('/book/add', 'bookController@addBookData')->name('add.Book.data');
 Route::post('/book/search', 'bookController@searchBook')->name('search.Book');
+
+//Commodity
+Route::post('/account/commodity', 'Auth\CommodityController@management')->name('Commodity.management');
