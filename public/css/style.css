@@ -55,5 +55,11 @@ body {
 }
 
 .member-center-item {
+    color: #9034dc;
     margin: 0 auto;
+}
+
+.member-button {
+    background: none;
+    border-style: none;
 }
