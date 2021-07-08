@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $book_info = DB::table('platforms')->get();
+        $book_info = DB::table('goods')->get();
         return view('home', ['book_info' => $book_info]);
     }
 }
