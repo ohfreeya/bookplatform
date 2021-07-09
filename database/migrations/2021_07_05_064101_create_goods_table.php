@@ -21,7 +21,7 @@ class CreateGoodsTable extends Migration
             $table->string('name');
             $table->bigInteger('publisherid')->unsigned();
             $table->foreign('publisherid')->references('id')->on('publishers')->onUpdate('cascade');
-            $table->dateTime('publishDate');
+            $table->date('publishDate');
             $table->string('edition');
             $table->string('language');
             $table->bigInteger('sellerid')->unsigned();

@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->bigInteger('ISBN');
             $table->unsignedBigInteger('publisherid');
             $table->foreign('publisherid')->references('id')->on('publishers')->onUpdate('cascade')->onDelete('cascade');
-            $table->dateTime('publishDate');
+            $table->date('publishDate');
             $table->string('edition');
             $table->string('language');
             $table->timestamps();
