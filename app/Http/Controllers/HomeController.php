@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $book_info = DB::table('goods')->get();
+        $book_info = DB::table('goods')
+            ->join('book_authors', 'goods.bookid', 'book_authors.bookid')
+            ->join('authors', 'book_authors.bookid', 'authors.id')
+            ->get();
         return view('home', ['book_info' => $book_info]);
     }
 }

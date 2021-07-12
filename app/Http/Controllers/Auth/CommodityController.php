@@ -20,7 +20,12 @@ class CommodityController extends Controller
         $arr=[
             'seller_id'=>$id,
         ];*/
-        $book_info = DB::table('platforms')->distinct()->where('seller_id',$data['id'])->get();
+        $book_info = DB::table('goods')
+                    ->distinct()
+                    ->where('sellerid',$data['id'])
+                    ->join('book_authors','goods.bookid','book_authors.bookid')
+                    ->join('authors','book_authors.bookid','authors.id')
+                    ->get();
         return view('management', ['book_info' => $book_info]);
     }
     public function trade_record()
