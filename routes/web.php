@@ -46,7 +46,7 @@ Route::post('/account/modify/user/pwd', 'Auth\UserController@modifyUserPwdData')
 Route::get('/account/delete/user', 'Auth\UserController@deleteUser')->name('delete.user');
 Route::post('/account/delete/user', 'Auth\UserController@deleteUserData')->name('delete.user.data');
 
-//platform
+//bookadd
 
 Route::get('/book/add', 'bookController@addBook')->name('add.Book');
 Route::post('/book/add', 'bookController@addBookData')->name('add.Book.data');
@@ -54,3 +54,4 @@ Route::post('/book/search', 'bookController@searchBook')->name('search.Book');
 
 //Commodity
 Route::post('/account/commodity', 'Auth\CommodityController@management')->name('Commodity.management');
+Route::get('/good/edit','editController@editPage')->name('edit.page');
