@@ -8,6 +8,7 @@ use App\User;
 use App\Author;
 use App\Publisher;
 use App\BookAuthor;
+use App\GoodAuthor;
 use App\Goods;
 use Brick\Math\BigInteger;
 use DB;
@@ -29,25 +30,36 @@ class bookController extends Controller
             $publisherid = $this::checkPublisher($data['publisher']);
             $Bookid = $this::checkBookExist($data, $publisherid);
             $this::bookAuthor($Bookid, $authorid);
-            $this::createGood($data, $Bookid, $publisherid);
+            $goodid = $this::createGood($data, $Bookid, $publisherid);
+            $this::AuthorGood($authorid, $goodid);
         }
         return view('add-Book', ['hint' => '1']);
     }
+    protected static function AuthorGood(String $authorid, String $goodid)
+    {
+        $arr = [
+            'goodid' => $goodid,
+            'authorid' => $authorid,
+        ];
+        GoodAuthor::Create($arr);
+    }
     protected static function createGood($data, $Bookid, $publisherid)
     {
-        $good = new Goods();
-        $good->bookid = $Bookid;
-        $good->ISBN = $data['ISBN'];
-        $good->name = $data['name'];
-        $good->publisherid = $publisherid;
-        $good->publishDate = $data['publishDate'];
-        $good->edition = $data['edition'];
-        $good->language = $data['language'];
-        $good->sellerid = $data['seller_id'];
-        $good->bookStatus = $data['bookStatus'];
-        $good->price = $data['price'];
-        $good->isDelete = 0;
-        $good->save();
+        $arr = [
+            'bookid' => $Bookid,
+            'ISBN' => $data['ISBN'],
+            'name' => $data['name'],
+            'publisherid' => $publisherid,
+            'publishDate' => $data['publishDate'],
+            'edition' => $data['edition'],
+            'language' => $data['language'],
+            'sellerid' => $data['seller_id'],
+            'bookStatus' => $data['bookStatus'],
+            'price' => $data['price'],
+            'isDelete' => 0,
+        ];
+        $goods = Goods::Create($arr);
+        return $goods->id;
     }
     protected static function bookAuthor($Bookid, $authorid)
     {
@@ -59,11 +71,10 @@ class bookController extends Controller
     }
     protected static function checkBookExist($data, String $publisherid)
     {
-        if (Books::where(['ISBN'=>$data['ISBN']])->exists()) {
-            $check = Books::where(['ISBN'=>$data['ISBN']])->first();
+        if (Books::where(['ISBN' => $data['ISBN']])->exists()) {
+            $check = Books::where(['ISBN' => $data['ISBN']])->first();
             return $check->id;
-        } 
-        else {
+        } else {
             $arr = [
                 'name' => $data['name'],
                 'ISBN' => $data['ISBN'],
