@@ -9,6 +9,7 @@ class Goods extends Model
     protected $fillable = [
         'ISBN' , 'name' , 'edition' ,
         'language' , 'bookStatus' , 
-        'price' , 'isDelete' ,
+        'price' , 'isDelete' , 'bookid',
+        'publisherid' , 'sellerid' ,'publishDate'
     ];
 }
