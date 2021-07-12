@@ -9,4 +9,5 @@ class GoodAuthor extends Model
     protected $fillable=[
         'goodid' , 'authorid' ,
     ];
+    public $timestamps = false;
 }
