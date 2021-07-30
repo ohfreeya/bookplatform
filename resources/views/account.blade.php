@@ -39,7 +39,7 @@
     </div>
     <hr>
     <div class="member-center">
-        <form action="{{route('Commodity.management')}}" method="post">
+        <form action="{{route('good.management')}}" method="post">
             @csrf
             <input type="hidden" value="{{Auth::user()->id}}" name="id">
             <button type="submit" class="member-button">
