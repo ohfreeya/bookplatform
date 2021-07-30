@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Goods;
 use Illuminate\Http\Request;
 use DB;
 
@@ -24,10 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $book_info = DB::table('goods')
-            ->join('book_authors', 'goods.bookid', 'book_authors.bookid')
-            ->join('authors', 'book_authors.bookid', 'authors.id')
-            ->get();
-        return view('home', ['book_info' => $book_info]);
+        $good_info = Goods::where(['isDelete'=>'0'])
+            ->join('good_authors', 'goods.id', 'good_authors.goodid')
+            ->join('authors', 'good_authors.authorid', 'authors.id')
+            ->paginate();
+        return view('home', ['good_info' => $good_info]);
     }
 }
