@@ -19,14 +19,24 @@
     <div class="card" id="platform-card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">書名 : {{$data->name}}</h5>
-            <h5 class="card-title">ISBN : {{$data->ISBN}}</h5>
-            <h5 class="card-title">書況 : {{$data->bookStatus}}</h5>
-            <h5 class="card-title">語言 : {{$data->language}}</h5>
-            <h5 class="card-title">出版日期 : {{$data->publishDate}}</h5>
-            <h5 class="card-title">作者 : {{$data->author}}</h5>
-            <h5 class="card-title">價格 : {{$data->price}}</h5>
-            <a href="#" class="btn btn-primary">修改</a>
+            <form action="{{ route('edit.good') }}" method="post">
+                @csrf
+                <input type="hidden" value="{{ $data->goodid }}" name="goodid">
+                <h5 class="card-title">書名 : {{$data->name}}</h5>
+                <h5 class="card-title">ISBN : {{$data->ISBN}}</h5>
+                <h5 class="card-title">書況 : {{$data->bookStatus}}</h5>
+                <h5 class="card-title">語言 : {{$data->language}}</h5>
+                <h5 class="card-title">出版日期 : {{$data->publishDate}}</h5>
+                <h5 class="card-title">作者 : {{$data->author}}</h5>
+                <h5 class="card-title">價格 : {{$data->price}}</h5>
+                <button type="submit">修改</button>
+            </form>
+            <form action="{{route('delete.good')}}" method="POST">
+                @csrf
+                <input type="hidden" name="sellerid" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="goodid" value="{{ $data->goodid }}">
+                <button type="submit">刪除</button>
+            </form>
         </div>
     </div>
     @endforeach
