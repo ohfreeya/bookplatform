@@ -53,5 +53,13 @@ Route::post('/book/add', 'bookController@addBookData')->name('add.Book.data');
 Route::post('/book/search', 'bookController@searchBook')->name('search.Book');
 
 //Commodity
-Route::post('/account/commodity', 'Auth\CommodityController@management')->name('Commodity.management');
-Route::get('/good/edit','editController@editPage')->name('edit.page');
+Route::post('/account/good', 'Auth\GoodController@management')->name('good.management');
+Route::post('/account/good/edit','Auth\GoodController@editGood')->name('edit.good');
+Route::post('/account/good/success','Auth\GoodController@editGoodData')->name('edit.good.data');
+Route::post('/account/good/delete', 'Auth\GoodController@deleteGood')->name('delete.good');
+
+//shop-cart
+Route::get('/good/shoppingcart', 'Auth\GoodController@getCart')->name("shoppingcart.index");
+Route::get('/good/shoppingcart/add/{id}', 'Auth\GoodController@getAddToCart')->name("shoppingcart.add");
+Route::get('/good/shoppingcart/remove/{id}', 'Auth\GoodController@getReductByOne')->name("shoppingcart.reduce");
+Route::get('/good/shoppingcart/reduce/{id}', 'Auth\GoodController@getRemoveItem')->name("shoppingcart.remove");
