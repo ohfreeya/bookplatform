@@ -12,7 +12,7 @@
     </nav>
 </div>
 <hr>
-@if($book_info->isEmpty())
+@if($good_info->isEmpty())
 <h1>暫無資料</h1>
 <a href="{{route('home')}}">返回首頁</a>
 <a href="{{route('add.Book')}}">
@@ -23,9 +23,9 @@
         </svg>
     </div>
 </a>
-@elseif($book_info)
+@elseif($good_info)
 <div id="list_page">
-    @foreach($book_info as $data)
+    @foreach($good_info as $data)
     <div class="card" id="platform-card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
@@ -36,7 +36,7 @@
             <h5 class="card-title">出版日期 : {{$data->publishDate}}</h5>
             <h5 class="card-title">作者 : {{$data->author}}</h5>
             <h5 class="card-title">價格 : {{$data->price}}</h5>
-            <a href="#" class="btn btn-primary">購買</a>
+            <a href="{{route('shoppingcart.add',['id' => $data->goodid])}}" class="btn btn-primary" role="button">加入購物車</a>
         </div>
     </div>
     @endforeach
